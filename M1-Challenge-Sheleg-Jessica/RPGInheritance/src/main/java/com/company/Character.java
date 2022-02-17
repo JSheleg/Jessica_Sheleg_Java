@@ -37,6 +37,10 @@ public class Character {
         return arrested;
     }
 
+    public void setArrested(boolean arrested) {
+        this.arrested = arrested;
+    }
+
     public boolean arrested() {
         this.arrested = true;
         System.out.println(this.name + " Was arrested for doing mean things!");

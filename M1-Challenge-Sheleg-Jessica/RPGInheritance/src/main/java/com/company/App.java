@@ -17,21 +17,21 @@ public class App {
         john.attack(max);
         john.arrested();
         System.out.println(john.toString());
-//        System.out.println("======Constable's abilities======");
-//        System.out.println(rob.toString());
-//        rob.run();
-//        rob.attack(john);
-//        rob.arrest(john);
-//        rob.attack(max);
-//        rob.arrest(john);
-//        rob.arrested();
-//        System.out.println(rob.toString());
-//        System.out.println("======Warrior's abilities======");
-//        System.out.println(max.toString());
-//        max.attack(john);
-//        max.attack(rob);
-//        max.arrested();
-//        System.out.println(max.toString());
+        System.out.println("======Constable's abilities======");
+        System.out.println(rob.toString());
+        rob.run();
+        rob.attack(john);
+        rob.arrest(john);
+        rob.attack(max);
+        rob.arrest(max);
+        rob.arrested();
+        System.out.println(rob.toString());
+        System.out.println("======Warrior's abilities======");
+        System.out.println(max.toString());
+        max.attack(john);
+        max.attack(rob);
+        max.arrested();
+        System.out.println(max.toString());
 
 
 

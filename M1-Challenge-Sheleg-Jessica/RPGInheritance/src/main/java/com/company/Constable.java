@@ -9,6 +9,7 @@ public class Constable extends Character{
     }
 
     public void arrest(Character enemy){
+        enemy.setArrested(true);
         System.out.println("Put your hands up " + enemy.getName() + " You are under arrest!!!!");
         enemy.isArrested();
     }
