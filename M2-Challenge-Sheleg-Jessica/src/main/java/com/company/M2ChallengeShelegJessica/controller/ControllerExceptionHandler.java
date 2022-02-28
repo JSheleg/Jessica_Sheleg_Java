@@ -32,6 +32,16 @@ public class ControllerExceptionHandler {
         return responseEntity;
     }
 
+    @ExceptionHandler(value = {ArithmeticException.class})
+    @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
+    public ResponseEntity<CustomErrorResponse> byZero(ArithmeticException e) {
+        CustomErrorResponse error = new CustomErrorResponse(HttpStatus.UNPROCESSABLE_ENTITY.toString(), e.getMessage());
+        error.setTimestamp(LocalDateTime.now());
+        error.setStatus(HttpStatus.UNPROCESSABLE_ENTITY.value());
+        ResponseEntity<CustomErrorResponse> responseEntity = new ResponseEntity<>(error, HttpStatus.UNPROCESSABLE_ENTITY);
+        return responseEntity;
+    }
+
     @ExceptionHandler(value ={HttpMessageNotReadableException.class})
     @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
     public ResponseEntity<CustomErrorResponse> MethodArgumentTypeMismatch(HttpMessageNotReadableException e) {

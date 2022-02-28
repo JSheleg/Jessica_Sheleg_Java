@@ -61,28 +61,24 @@ public class MathControllerTest {
     }
 
     //testing Post/add - invalid request body
-//    @Test
-//    public void shouldReturn422StatusCodeIfRequestBodyIsInvalid() throws Exception{
-//        Math inputMath = new Math();
-//        inputMath.setOperand1(1);
-////        inputMath.setOperand2(2);
-//        inputMath.setOperation("Add");
-////        inputMath.setAnswer(inputMath.getOperand1() + inputMath.getOperand2());
-//
-//        String inputJson = mapper.writeValueAsString(inputMath);
-//
-//        mockMvc.perform(
-//                post("/add")
-//                        .content(inputJson)
-//                        .contentType(MediaType.APPLICATION_JSON)
-//        )
-//                .andDo(print())
-//                .andExpect(status().isUnprocessableEntity());
-//
-//    }
+    @Test
+    public void shouldReturn422StatusCodeIfAdditionRequestBodyIsInvalid() throws Exception{
+        Math inputMath = new Math();
+        inputMath.setOperand1(1);
+        inputMath.setOperand2(2);
+        inputMath.setAnswer(inputMath.getOperand1() + inputMath.getOperand2());
 
+        String inputJson = mapper.writeValueAsString(inputMath);
 
+        mockMvc.perform(
+                post("/add")
+                        .content(inputJson)
+                        .contentType(MediaType.APPLICATION_JSON)
+        )
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
 
+    }
 
     //testing Post /subtract
     @Test
@@ -114,7 +110,25 @@ public class MathControllerTest {
 
     }
 
-    // //testing Post/subtract- invalid request body
+    //testing Post/subtract- invalid request body
+    @Test
+    public void shouldReturn422StatusCodeIfSubtractionRequestBodyIsInvalid() throws Exception{
+        Math inputMath = new Math();
+        inputMath.setOperand1(1);
+        inputMath.setOperand2(2);
+        inputMath.setAnswer(inputMath.getOperand1() - inputMath.getOperand2());
+
+        String inputJson = mapper.writeValueAsString(inputMath);
+
+        mockMvc.perform(
+                        post("/subtract")
+                                .content(inputJson)
+                                .contentType(MediaType.APPLICATION_JSON)
+                )
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
+
+    }
 
     //testing Post /multiply
     @Test
@@ -147,6 +161,24 @@ public class MathControllerTest {
     }
 
     //testing Post/multiply - invalid request body
+    @Test
+    public void shouldReturn422StatusCodeIfMultiplicationRequestBodyIsInvalid() throws Exception{
+        Math inputMath = new Math();
+        inputMath.setOperand1(1);
+        inputMath.setOperand2(2);
+        inputMath.setAnswer(inputMath.getOperand1() * inputMath.getOperand2());
+
+        String inputJson = mapper.writeValueAsString(inputMath);
+
+        mockMvc.perform(
+                        post("/multiply")
+                                .content(inputJson)
+                                .contentType(MediaType.APPLICATION_JSON)
+                )
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
+
+    }
 
     //testing Post /divide
     @Test
@@ -179,37 +211,54 @@ public class MathControllerTest {
     }
 
     //testing Post/divide - invalid request body
+    @Test
+    public void shouldReturn422StatusCodeIfSDivisionRequestBodyIsInvalid() throws Exception{
+        Math inputMath = new Math();
+        inputMath.setOperand1(10);
+        inputMath.setOperand2(2);
+        inputMath.setAnswer(inputMath.getOperand1() / inputMath.getOperand2());
+
+        String inputJson = mapper.writeValueAsString(inputMath);
+
+        mockMvc.perform(
+                        post("/subtract")
+                                .content(inputJson)
+                                .contentType(MediaType.APPLICATION_JSON)
+                )
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
+
+    }
 
     //testing Post/divide - divide by zero
-//    @Test
-//    public void shouldReturn422IfZeroInBody() throws Exception{
+    @Test
+    public void shouldReturn422IfZeroInBody() throws Exception{
 
 
-//        Math inputMath = new Math();
-//        inputMath.setOperand1(10);
-//        inputMath.setOperand2(0);
-//        inputMath.setOperation("Divide");
-//        inputMath.setAnswer(inputMath.getOperand1() / inputMath.getOperand2());
-//
-//        String inputJson = mapper.writeValueAsString(inputMath);
-//
+        Math inputMath = new Math();
+        inputMath.setOperand1(10);
+        inputMath.setOperand2(0);
+        inputMath.setOperation("Divide");
+
+        String inputJson = mapper.writeValueAsString(inputMath);
+
 //        Math outputMath = new Math();
 //        outputMath.setOperand1(10);
-//        outputMath.setOperand2(2);
+//        outputMath.setOperand2(0);
 //        outputMath.setOperation("Divide");
 //        outputMath.setAnswer(outputMath.getOperand1() / outputMath.getOperand2());
 //
 //        String outputJson = mapper.writeValueAsString(outputMath);
-//
-//        mockMvc.perform(
-//                        post("/divide")
-//                                .content(inputJson)
-//                                .contentType(MediaType.APPLICATION_JSON)
-//                )
-//                .andDo(print())
-//                .andExpect((status().ArithmeticException));
-//
-//    }
+
+        mockMvc.perform(
+                        post("/divide")
+                                .content(inputJson)
+                                .contentType(MediaType.APPLICATION_JSON)
+                )
+                .andDo(print())
+                .andExpect((status().isUnprocessableEntity()));
+
+    }
 
 
 

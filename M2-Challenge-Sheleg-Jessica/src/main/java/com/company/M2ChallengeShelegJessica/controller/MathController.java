@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.*;
 import com.company.M2ChallengeShelegJessica.models.Math;
 
 import javax.validation.Valid;
-import javax.validation.constraints.Min;
 
 @RestController
 public class MathController {

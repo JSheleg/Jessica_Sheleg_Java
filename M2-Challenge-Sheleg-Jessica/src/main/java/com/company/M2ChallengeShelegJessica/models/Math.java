@@ -11,8 +11,9 @@ public class Math {
     @NotNull(message = "You must supply a value for operand1")
     Integer  operand1;
     @NotNull(message = "You must supply a value for operand2")
-    @Min(value = 1, message = "select value larger than 0")
+//    @Min(value = 1, message = "select value larger than 0")
     Integer operand2;
+    @NotNull(message = "You must input an operation")
     String operation;
     int answer;
 
